@@ -4,7 +4,7 @@ Tracks the number of members of Hack Club's Mattermost instance (<https://not.sl
 
 ## Online demo
 
-View the dashboard at [**grafana.slevel.xyz**](https://grafana.slevel.xyz/public-dashboards/445e1f759abf4612a92fdab3f5e82453)!
+View the dashboard on the interweb: 📊 <https://grafana.slevel.xyz/public-dashboards/445e1f759abf4612a92fdab3f5e82453>
 
 [![Screenshot of the dashboard](dashboard.png)](https://grafana.slevel.xyz/public-dashboards/445e1f759abf4612a92fdab3f5e82453)
 
