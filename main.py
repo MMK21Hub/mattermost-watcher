@@ -1,4 +1,4 @@
-from sys import stderr
+from sys import stderr, exit
 from time import sleep
 from traceback import format_exc
 from argparse import ArgumentParser
@@ -42,23 +42,36 @@ def main():
         "--username",
         type=str,
         help="username (or email) for Mattermost authentication",
-        required=True,
     )
     parser.add_argument(
         "--password",
         type=str,
         help="password for Mattermost authentication",
-        required=True,
+    )
+    parser.add_argument(
+        "--token",
+        type=str,
+        help="personal access token for Mattermost (alternative to username/password)",
     )
     args = parser.parse_args()
 
     mattermost = MattermostClient(
         url=args.mattermost_url,
     )
-    user = mattermost.log_in_with_credentials(
-        username=args.username,
-        password=args.password,
-    )
+
+    if args.token:
+        user = mattermost.log_in_with_token(token=args.token)
+    elif args.username and args.password:
+        user = mattermost.log_in_with_credentials(
+            username=args.username,
+            password=args.password,
+        )
+    else:
+        print(
+            "Error: Must provide either --token, or both --username and --password",
+            file=stderr,
+        )
+        exit(1)
     print(f"Logged in to {args.mattermost_url} as @{user['username']}", flush=True)
 
     start_http_server(args.port)
