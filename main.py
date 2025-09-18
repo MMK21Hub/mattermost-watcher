@@ -64,14 +64,18 @@ def main():
     print(f"Started metrics exporter: http://localhost:{args.port}/metrics", flush=True)
 
     has_had_success = False
-    # TODO - Set up metrics
+    total_users = Gauge(
+        "mattermost_users_total",
+        "Total number of users on the Mattermost instance",
+        ["hostname"],
+    )
 
     while True:
         try:
-            the_data = fetch_data()
-            # TODO - Update metrics
+            total = mattermost.get_total_users()
+            total_users.labels(hostname=mattermost.url.hostname).set(total)
             if args.verbose:
-                print(f"Successfully fetched data")
+                print(f"Fetched data: {total} total users")
             has_had_success = True
         except Exception as e:
             # Exit the program if the first fetch fails

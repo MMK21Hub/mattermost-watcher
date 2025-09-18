@@ -19,3 +19,9 @@ class MattermostClient:
         token = response.headers["Token"]
         self.session.headers.update({"Authorization": f"Bearer {token}"})
         return response.json()
+
+    def get_total_users(self):
+        response = self.session.get(f"{self.api_base}/users/stats")
+        response.raise_for_status()
+        stats = response.json()
+        return int(stats["total_users_count"])
