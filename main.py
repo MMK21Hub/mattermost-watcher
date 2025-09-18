@@ -53,11 +53,12 @@ def main():
     args = parser.parse_args()
 
     mattermost = MattermostClient(
-        username=args.username,
-        password=args.password,
         url=args.mattermost_url,
     )
-    user = mattermost.log_in()
+    user = mattermost.log_in_with_credentials(
+        username=args.username,
+        password=args.password,
+    )
     print(f"Logged in to {args.mattermost_url} as @{user['username']}", flush=True)
 
     start_http_server(args.port)
