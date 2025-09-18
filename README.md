@@ -2,6 +2,12 @@
 
 Tracks the number of members of Hack Club's Mattermost instance (<https://not.slack.hackclub.com>), exporting it as a Prometheus metric.
 
+## Online demo
+
+View the dashboard at [**grafana.slevel.xyz**](https://grafana.slevel.xyz/public-dashboards/445e1f759abf4612a92fdab3f5e82453)!
+
+[![Screenshot of the dashboard](dashboard.png)](https://grafana.slevel.xyz/public-dashboards/445e1f759abf4612a92fdab3f5e82453)
+
 ## Local development
 
 This project uses Python (3.9+) and [uv](https://docs.astral.sh/uv/) for development.
