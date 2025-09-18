@@ -33,9 +33,10 @@ uv run main.py --help
 
 ## Production deployment with Docker Compose
 
-1. Download the example Compose file from [deployment/docker-compose.yml](deployment/docker-compose.yml). Feel free to adjust it to your needs.
-2. Start it with `docker-compose up -d`
-3. Metrics should now be available at <http://localhost:9060/metrics>
+1. Download the example Compose file from [deployment/docker-compose.yml](deployment/docker-compose.yml).
+2. Edit the file to include your Mattermost authentication details
+3. Start it with `docker compose up -d`
+4. Metrics should now be available at <http://localhost:9060/metrics>
 
 ### Example `prometheus.yml` config
 

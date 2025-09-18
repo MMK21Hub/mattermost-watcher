@@ -3,5 +3,6 @@ services:
     image: mmk21/mattermost-watcher:latest
     init: true
     restart: unless-stopped
+    command: ["--username", "YOUR_USERNAME", "--password", "YOUR_PASSWORD"]
     ports:
       - 9060:9060
