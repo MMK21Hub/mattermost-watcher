@@ -7,7 +7,7 @@ class MattermostClient:
         self.username = username
         self.password = password
         self.url = urlparse(url)
-        self.api_base = f"{self.url}/api/v4"
+        self.api_base = f"{url}/api/v4"
         self.session = requests.Session()
 
     def log_in(self):
