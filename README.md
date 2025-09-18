@@ -1,25 +1,6 @@
-# Prometheus exporter template (Python)
+# Mattermost Watcher
 
-This is a template to make a Prometheus exporter project (like [Daydream Watcher](https://github.com/MMK21Hub/daydream-watcher)) using Python and the `prometheus_client` library.
-
-## Using this template
-
-1. On GitHub, click the green "use this template" button in the top-right
-2. Pick a repository name and description. For consistency, you should name it `*-watcher` (e.g. `core-watcher`, `daydream-watcher`)
-3. Clone and open the repository in your preferred IDE
-4. Use your IDE's global find-and-replace feature to replace all occurrences of `mattermost-watcher` with your chosen project slug
-5. If you're someone other than [@MMK21Hub](https://github.com/MMK21Hub), you'll probably want to update instances of `mmk21` to match your own Docker Hub account (for publishing releases)
-6. Also find-and-replace (match whole word) the port number `9060`, changing it to something custom like `9030`
-7. Delete this section and everything above it from the README, and replace it with your own project title and description
-8. Search for "TODO" across all files and address them by writing your own code
-
-<!-- ## Online demo
-
-[![Screenshot of Grafana dashboard stats from the program](screenshot.png)][demo]
-
-**[🌍 View dashboard on grafana.slevel.xyz][demo]** <!-- TODO Replace the below with demo link (Grafana dashboard) -->
-
-[demo]: https://example.com -->
+Tracks the number of members of Hack Club's Mattermost instance (<https://not.slack.hackclub.com>), exporting it as a Prometheus metric.
 
 ## Local development
 
