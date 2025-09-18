@@ -7,8 +7,29 @@ Tracks the number of members of Hack Club's Mattermost instance (<https://not.sl
 This project uses Python (3.9+) and [uv](https://docs.astral.sh/uv/) for development.
 
 1. Clone the repo
-2. `uv run main.py`
+2. Run the tool, authenticating with some Mattermost account details (any user will do):
+
+   ```bash
+   uv run main.py --username USERNAME --password PASSWORD
+   ```
+
 3. Head to <http://localhost:9060/metrics> to see the metrics
+
+### Using token authentication
+
+Alternatively, you can authenticate using a [personal access token](https://docs.mattermost.com/developer/personal-access-tokens.html) (PAT). Note that normal users currently cannot create PATs on the Hack Club Mattermost.
+
+```bash
+uv run main.py --token YOUR_TOKEN
+```
+
+### Other options
+
+For the full list of command-line options, run:
+
+```bash
+uv run main.py --help
+```
 
 ## Production deployment with Docker Compose
 
