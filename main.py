@@ -39,13 +39,13 @@ def main():
         help="base URL of the Mattermost instance to monitor",
     )
     parser.add_argument(
-        "--mattermost-username",
+        "--username",
         type=str,
         help="username (or email) for Mattermost authentication",
         required=True,
     )
     parser.add_argument(
-        "--mattermost-password",
+        "--password",
         type=str,
         help="password for Mattermost authentication",
         required=True,
@@ -53,8 +53,8 @@ def main():
     args = parser.parse_args()
 
     mattermost = MattermostClient(
-        username=args.mattermost_username,
-        password=args.mattermost_password,
+        username=args.username,
+        password=args.password,
         url=args.mattermost_url,
     )
     user = mattermost.log_in()
