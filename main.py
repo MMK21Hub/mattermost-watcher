@@ -4,6 +4,8 @@ from traceback import format_exc
 from argparse import ArgumentParser
 from prometheus_client import start_http_server, Gauge
 
+from mattermost import MattermostClient
+
 
 def fetch_data():
     # TODO - Implement data fetching
@@ -30,7 +32,33 @@ def main():
         default=5,
         help="how often to fetch data, in seconds",
     )
+    parser.add_argument(
+        "--mattermost-url",
+        type=str,
+        default="https://not.slack.hackclub.com",
+        help="base URL of the Mattermost instance to monitor",
+    )
+    parser.add_argument(
+        "--mattermost-username",
+        type=str,
+        help="username (or email) for Mattermost authentication",
+        required=True,
+    )
+    parser.add_argument(
+        "--mattermost-password",
+        type=str,
+        help="password for Mattermost authentication",
+        required=True,
+    )
     args = parser.parse_args()
+
+    mattermost = MattermostClient(
+        username=args.mattermost_username,
+        password=args.mattermost_password,
+        url=args.mattermost_url,
+    )
+    user = mattermost.log_in()
+    print(f"Logged in to {args.mattermost_url} as @{user['username']}", flush=True)
 
     start_http_server(args.port)
     print(f"Started metrics exporter: http://localhost:{args.port}/metrics", flush=True)

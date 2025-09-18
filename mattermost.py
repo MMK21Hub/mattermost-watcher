@@ -1,0 +1,21 @@
+from urllib.parse import urlparse
+import requests
+
+
+class MattermostClient:
+    def __init__(self, username: str, password: str, url: str):
+        self.username = username
+        self.password = password
+        self.url = urlparse(url)
+        self.api_base = f"{self.url}/api/v4"
+        self.session = requests.Session()
+
+    def log_in(self):
+        response = self.session.post(
+            f"{self.api_base}/users/login",
+            json={"login_id": self.username, "password": self.password},
+        )
+        response.raise_for_status()
+        token = response.headers["Token"]
+        self.session.headers.update({"Authorization": f"Bearer {token}"})
+        return response.json()
