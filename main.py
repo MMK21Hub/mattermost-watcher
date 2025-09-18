@@ -29,7 +29,7 @@ def main():
     parser.add_argument(
         "--interval",
         type=int,
-        default=5,
+        default=10,
         help="how often to fetch data, in seconds",
     )
     parser.add_argument(
