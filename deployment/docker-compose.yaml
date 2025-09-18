@@ -1,7 +1,7 @@
 services:
-  anything-watcher:
-    image: mmk21/anything-watcher:latest
+  mattermost-watcher:
+    image: mmk21/mattermost-watcher:latest
     init: true
     restart: unless-stopped
     ports:
-      - 9000:9000
+      - 9060:9060

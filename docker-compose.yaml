@@ -1,6 +1,6 @@
 services:
-  anything-watcher:
+  mattermost-watcher:
     build: .
     init: true
     ports:
-      - 9000:9000
+      - 9060:9060
